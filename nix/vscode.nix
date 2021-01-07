@@ -9,8 +9,6 @@ let
     }
   ];
 in
-{
-  vscode = pkgs.vscode-with-extensions.override {
-    vscodeExtensions = extensions;
-  };
+pkgs.vscode-with-extensions.override {
+  vscodeExtensions = extensions;
 }

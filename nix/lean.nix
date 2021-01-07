@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
     owner  = "leanprover-community";
     repo   = "lean";
     rev    = "v${version}";
-    sha256 = "sha256-npzBuZ37KrUYwC0TglryVTqui/3/t1ma1Zjpnty0d7c=";
+    sha256 = "npzBuZ37KrUYwC0TglryVTqui/3/t1ma1Zjpnty0d7c=";
   };
 
   nativeBuildInputs = [ cmake ];

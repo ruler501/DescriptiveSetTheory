@@ -8,13 +8,16 @@
     flake-utils.lib.eachDefaultSystem
       (system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
-          vscode = (import ./nix/vscode.nix { inherit pkgs; }).vscode;
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          vscode = import ./nix/vscode.nix { inherit pkgs; };
           lean = import ./nix/lean.nix { inherit pkgs; };
           name = "DescriptiveSetTheory";
         in
         {
-          devShell = pkgs.stdenv.mkDerivation {
+          devShell = pkgs.mkShell {
             buildInputs = [ lean vscode pkgs.mathlibtools ];
             shellHook = "";
           };

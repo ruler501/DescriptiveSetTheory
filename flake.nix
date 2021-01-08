@@ -18,7 +18,7 @@
         in
         {
           devShell = pkgs.mkShell {
-            buildInputs = [ lean vscode pkgs.mathlibtools ];
+            buildInputs = [ pkgs.elan lean pkgs.mathlibtools vscode ];
             shellHook = "";
           };
         }
